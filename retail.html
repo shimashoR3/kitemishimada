@@ -14,39 +14,22 @@
     crossorigin=""></script>
 </head>
 
-<body>
-
 <div id="container">
-
 <header>
-<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="東京北海高等学校"></a></h1>
+<h1 style="text-align:center"><a href="index.html"><img src="images/logo.png" alt="東京北海高等学校"></a></h1>
+
 <h2 style="text-align:center">小売</h2>
 </header>
+<body>
 
-<!--開閉ブロック-->
-<div id="menubar">
-<nav>
-<ul>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="goals.html">教育目標</a></li>
-<li><a href="">学校行事</a>
-	<ul>
-	<li><a href="events.html">一年生</a></li>
-	<li><a href="events.html">二年生</a></li>
-	<li><a href="events.html">三年生</a></li>
-	</ul>
-</li>
-<li><a href="club.html">部活動</a></li>
-<li><a href="voices.html">卒業生の声</a></li>
-</ul>
-</nav>
-</div>
+
+
 
 
     <div id="view_map" style="height: 1080px;"></div>
     <script type="text/javascript">
     //緯度,経度,ズーム
-    var map = L.map('view_map').setView([34.833514043886844, 138.17802174303273], 15.5);
+    var map = L.map('view_map').setView([34.833514043886844, 138.17802174303273], 15);
     // OpenStreetMap から地図画像を読み込む
     L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
@@ -61,8 +44,7 @@
       .setLatLng(e.latlng)
       .setContent("酒井生花店 <br>住所　　　　静岡県島田市本通6丁目2-6<br>電話番号　　0547373702<br>定休日　　　木曜日<br>営業時間　　8:30～19:00<br>	 <br>       花の贈り物の新提案。花とバルーンを組み合わせたサプライズギフト、アレンジ、花束、開店祝、お見舞い等承ります。")
       .openOn(map);
-});
-  
+}); 
 
     L.marker([34.83271332,	138.17404140424665]).addTo(map).on('click', function (e) {
             popup
@@ -163,15 +145,7 @@
 </footer>
 
 </div>
-<!--/#container-->
 
-<!--開閉ボタン（ハンバーガーアイコン）-->
-<div id="menubar_hdr">
-<span></span><span></span><span></span>
-</div>
-
-<!--ページの上部へ戻るボタン-->
-<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
 
 <!--jQueryの読み込み-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
