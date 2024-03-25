@@ -23,24 +23,6 @@
 <h2 style="text-align:center">飲食</h2>
 </header>
 
-<!--開閉ブロック-->
-<div id="menubar">
-<nav>
-<ul>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="goals.html">教育目標</a></li>
-<li><a href="">学校行事</a>
-	<ul>
-	<li><a href="events.html">一年生</a></li>
-	<li><a href="events.html">二年生</a></li>
-	<li><a href="events.html">三年生</a></li>
-	</ul>
-</li>
-<li><a href="club.html">部活動</a></li>
-<li><a href="voices.html">卒業生の声</a></li>
-</ul>
-</nav>
-</div>
 
 
     <div id="view_map" style="height: 1080px;"></div>
@@ -60,14 +42,14 @@
     L.marker([34.83255679,138.17429645216572]).addTo(map).on('click', function (e) {
     popup
       .setLatLng(e.latlng)
-      .setContent("<a href="http://shimadasyoutengai.com/topics/?p=1718"/></a><strong>居酒屋きんかん</strong><br>住所　　　　島田市本通2-5-12 大重ビル1F<br>電話番号　　0547-39-6550<br>定休日　　　火曜日<br>営業時間　　18:00～23:00<br><br>立ち飲み屋居酒屋ドラム缶改めきんかんとしてオープンしました。カラオケも導入しましたのでごゆっくり楽しい時間をお過ごしいただければと思います。")
+      .setContent("<strong>居酒屋きんかん</strong><br>住所　　　　島田市本通2-5-12 大重ビル1F<br>電話番号　　0547-39-6550<br>定休日　　　火曜日<br>営業時間　　18:00～23:00<br><br>立ち飲み屋居酒屋ドラム缶改めきんかんとしてオープンしました。カラオケも導入しましたのでごゆっくり楽しい時間をお過ごしいただければと思います。")
       .openOn(map);
 });
 
     L.marker([34.83174738,138.17462319624835]).addTo(map).on('click', function (e) {
             popup
               .setLatLng(e.latlng)
-              .setContent("居酒屋てんみ<br>住所　　　島田市日之出町1-11<br>電話番号　　0547-39-7030<br>定休日　　　水曜日<br>営業時間　　17:00～24:30<br><br>御料理は季節ぶ併せた旬な日本料理とフランス・中華料理をベースとしています。リーズナブルに提供しておりますので、御気軽にお取り寄せください。")
+              .setContent("居酒屋てんみ<br>住所　　　島田市日之出町1-11<br>電話番号　　0547-39-7030<br>定休日　　　水曜日<br>営業時間　　17:00～24:30<br><br>御料理は季節ぶ併せた旬な日本料理とフランス・中華料理をベースとしています。リーズナブルに提供しておりますので、御気軽にお取り寄せください。")  
               .openOn(map);
     });
 
@@ -214,13 +196,7 @@
 </div>
 <!--/#container-->
 
-<!--開閉ボタン（ハンバーガーアイコン）-->
-<div id="menubar_hdr">
-<span></span><span></span><span></span>
-</div>
 
-<!--ページの上部へ戻るボタン-->
-<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
 
 <!--jQueryの読み込み-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
