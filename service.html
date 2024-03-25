@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>小学校・中学校・高等学校向け 無料ホームページテンプレート tp_school4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+<h1 style="text-align:center"><a href="index.html"><img src="images/logo.png" alt="東京北海高等学校"></a></h1>
+<h2 style="text-align:center">和菓子</h2>
+</header>
+
+<!--開閉ブロック-->
+<div id="menubar">
+<nav>
+<ul>
+<li><a href="index.html">ホーム</a></li>
+<li><a href="goals.html">教育目標</a></li>
+<li><a href="">学校行事</a>
+	<ul>
+	<li><a href="events.html">一年生</a></li>
+	<li><a href="events.html">二年生</a></li>
+	<li><a href="events.html">三年生</a></li>
+	</ul>
+</li>
+<li><a href="club.html">部活動</a></li>
+<li><a href="voices.html">卒業生の声</a></li>
+</ul>
+</nav>
+</div>
+
+
+    <div id="view_map" style="height: 1080px;"></div>
+    <script type="text/javascript">
+    //緯度,経度,ズーム
+    var map = L.map('view_map').setView([34.836444203417976, 138.17705896096896], 15);
+    // OpenStreetMap から地図画像を読み込む
+    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+    }).addTo(map);
+    
+    var popup = L.popup();
+    
+    var addMarker = null;
+
+    L.marker([35.658577, 139.745451]).addTo(map).on('click', function (e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("東京タワー")
+      .openOn(map);
+});
+
+
+
+
+
+    L.marker([34.83305546193566,138.17399919829327]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("<strong>御菓子舗 稲葉屋</strong><br>住所　　　　静岡県島田市本通二丁目3-3<br>電話番号　　0547-36-1788<br>定休日　　　水曜日<br>営業時間　　8:30～18:30<br>	<br>	美味しさと全品自家製がモットー!!あんこたっぷりどら焼き、玉子せんべい、アーモンドヌガーも大好評。伊太和里温泉にて好評発売中‼")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83263656258121,138.17450896014333]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("<strong>株式会社 清水屋</strong><br>住所　　　　静岡県島田市本通二丁目5-5<br>電話番号　　0547-37-2542<br>定休日　　　年中無休<br>営業時間　　8:30～18:30<br>	<br>	当店の歴史は古く、江戸時代まで遡ります。これからも「伝統の味」「変わらぬおいしさ」をお届します。")
+              .openOn(map);
+    });
+
+
+    L.marker([34.832844373581025,138.17404227102654]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("<strong>和洋菓子 みのや</strong><br>住所　　　　静岡県島田市本通二丁目4-10<br>電話番号　　0547-37-2846<br>定休日　　　水曜日<br>営業時間　　8:30～18:30<br>	<br>	郷土色豊かな島田銘菓のお店。小饅頭やみそ饅頭、どら皮でプリンをサンドした「プリンどら焼」も好評です。赤飯お餅注文承ります。")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83231042752433,138.1821036928644]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("<strong>中村菓子舗</strong><br>住所　　　　静岡県島田市本通７丁目７７３９<br>電話番号　　0547-37-5658<br>定休日　　　水曜日<br>営業時間　　8:30～19:00<br>	<br>	四季折々のお菓子や生菓子、ケーキなどの洋菓子といった様々な和･洋菓子を製造･販売しています")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83233241858001,138.1795062805077]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("龍月堂<br>住所　　　　静岡県島田市本通六丁目7847<br>電話番号　　	0547-37-3297<br>定休日　　　火曜日<br>営業時間　　8:00～19:30<br>	<br>	明治39年創業。伝統の島田名物、小まん頭、味噌まんじゅうやカリント饅頭、唐変木などの和菓子、若い方に喜ばれるクリーム大福やチーズスフレ等販売。")
+              .openOn(map);
+    });
+
+
+    L.marker([34.832505607964634,138.1771278987819]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("海道一の名物よしむらの鯛焼<br>住所　　　　静岡県島田市本通四丁目6-6<br>電話番号　　0547-37-2978<br>定休日　　　木曜日<br>営業時間　　10:00～18：00<br>	<br>	遠方からもこの鯛焼を求めにお客さんが来るほどのおいしさ、ぜひ一度食べ見てはいかかでしょうか")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83212993589345,138.1741435792437]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("小倉屋<br>住所　　　　静岡県島田市日之出町２−２２<br>電話番号　　0547-35-4040<br>定休日　　　水曜日<br>営業時間　　9:30～19:00<br>	<br>	きんつば、あんみつがお手ごろな価格で買える甘味処")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83406178966033,138.17535872492851]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("春日堂<br>住所　　　　静岡県島田市幸町12-14<br>電話番号　　0547-36-0239<br>定休日　　　水曜日<br>営業時間　　9:00～20:00<br>	<br>	カステラやケーキをはじめ、昔ながらの小さな店内に和菓子がたくさん！ぜひ一度訪れてみては？")
+              .openOn(map);
+    });
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+  
+
+<!--/地図-->
+
+<ul class="btn">
+<li><a href="food.html">飲食</a></li>
+<li><a href="retail.html">小売</a></li>
+<li><a href="service.html">和菓子</a></li>
+
+</ul>
+
+<footer>
+<small>Copyright&copy; <a href="index.html">東京北海高等学校</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+</div>
+<!--/#container-->
+
+<!--開閉ボタン（ハンバーガーアイコン）-->
+<div id="menubar_hdr">
+<span></span><span></span><span></span>
+</div>
+
+<!--ページの上部へ戻るボタン-->
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="js/main.js"></script>
+
+</body>
+</html>

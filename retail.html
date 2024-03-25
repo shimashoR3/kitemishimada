@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>小学校・中学校・高等学校向け 無料ホームページテンプレート tp_school4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="東京北海高等学校"></a></h1>
+<h2 style="text-align:center">小売</h2>
+</header>
+
+<!--開閉ブロック-->
+<div id="menubar">
+<nav>
+<ul>
+<li><a href="index.html">ホーム</a></li>
+<li><a href="goals.html">教育目標</a></li>
+<li><a href="">学校行事</a>
+	<ul>
+	<li><a href="events.html">一年生</a></li>
+	<li><a href="events.html">二年生</a></li>
+	<li><a href="events.html">三年生</a></li>
+	</ul>
+</li>
+<li><a href="club.html">部活動</a></li>
+<li><a href="voices.html">卒業生の声</a></li>
+</ul>
+</nav>
+</div>
+
+
+    <div id="view_map" style="height: 1080px;"></div>
+    <script type="text/javascript">
+    //緯度,経度,ズーム
+    var map = L.map('view_map').setView([34.833514043886844, 138.17802174303273], 15.5);
+    // OpenStreetMap から地図画像を読み込む
+    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+    }).addTo(map);
+    
+    var popup = L.popup();
+    
+    var addMarker = null;
+    L.marker([34.8326333,	138.17922358761624]).addTo(map).on('click', function (e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("酒井生花店 <br>住所　　　　静岡県島田市本通6丁目2-6<br>電話番号　　0547373702<br>定休日　　　木曜日<br>営業時間　　8:30～19:00<br>	 <br>       花の贈り物の新提案。花とバルーンを組み合わせたサプライズギフト、アレンジ、花束、開店祝、お見舞い等承ります。")
+      .openOn(map);
+});
+  
+
+    L.marker([34.83271332,	138.17404140424665]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("あすなろフルーツ<br>住所　　　　静岡県島田市本通二丁目4‐12<br>電話番号　　0547-35‐5789<br>定休日　　　水曜日	<br>営業時間　　9:30～19：30<br>	<br>	贈答用果実、法事用の篭盛、果物の地方発送等、承ります。")
+              .openOn(map);
+    });
+
+    L.marker([34.83235025	,138.17950935308826]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("高岡米穀店<br>住所　　　　静岡県島田市本通六丁目7874<br>電話番号　　	0547-37-2990<br>定休日　　　	日曜日<br>営業時間　　8:00～19:30<br><br>		自家精米のお店です。1Kからお計り致しますので、色々なお米の味をお試し下さい。私だけのオリジナル米を作ってみませんか?")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83231247	,138.17970445308399]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("こどもや<br>住所　　　　静岡県島田市本通六丁目7832<br>電話番号　　0547-37-3925<br>定休日　　　火曜日	<br>営業時間　　9:30～20:00<br><br>アンパンマン、仮面ライダーなど人気のキャラクターがいっぱいの小さなお店です。当店は昭和40年の時代から古いお店なので、古いオモチャも…お宝かも…是非、ご来店下さい。")
+              .openOn(map);
+    });
+    
+
+    L.marker([34.83229218	,138.17994351832738]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("たぬき屋<br>住所　　　　静岡県島田市本通六丁目7823-2<br>電話番号　　0547-37-2430	<br>定休日　　　水曜日<br>営業時間　　9:30～18:00<br><br>餅、おこわの専門店として昔ながらの製法で製造販売いたしております。")
+              .openOn(map);
+    });
+
+
+
+
+    L.marker([34.83226896	,138.18035628628493]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("小澤タバコ店<br>住所　　　　静岡県島田市本通六丁目7814<br>電話番号　　0547-36-415<br>定休日　　　土曜日<br>営業時間　　8:00～19:30<br><br>		たばこ販売、宝くじ、数字選択くじ(ナンバーズ)販売。")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83225695	 ,138.17984868983953]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("松永文具店<br>住所　　　　静岡県島田市本通六丁目7827<br>電話番号　　0547-37-2421<br>定休日　　　日曜日<br>営業時間10:00～18:00<br><br>		いつでも2割引きで販売しております。")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83288927	,138.1766666845316]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("シルベスター<br>住所　　　　静岡県島田市本通四丁目1-10<br>電話番号　　0547-36‐2402<br>定休日　　　日曜日<br>営業時間　　10:00～18:45	<br><br>	1979年より現在まで市内にてパン製造小売を営業しております。")
+              .openOn(map);
+    });
+
+
+
+
+    L.marker([34.83236816	,138.17644894044386]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("鈴菱<br>住所　　　　静岡県島田市本通四丁目4-5<br>電話番号　　0547-35-2908<br>定休日　　　水曜日<br>営業時間　　9:30～19:00	<br><br>	呉服全般はもちろんのこと、和テイストの小物、印伝製品、祭用品、和柄衣料品など、幅広く取り揃えております。ギフトにもいかがでしょうか。")
+              .openOn(map);
+    });
+
+
+    L.marker([34.83284085	,138.18272254640684]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("おもちゃのピノキオ<br>住所　　　　静岡県島田市本通七丁目8455<br>電話番号　　0547-37-5594<br>定休日　　　月、火、水、木、金、日曜日<br>営業時間　　10:00～18:00	<br><br>	ガンダムのプラモデルや、さまざまなフィギュアが入口で出迎えてくれます。")
+              .openOn(map);
+    });
+
+
+
+    L.marker([34.83818207	,138.17807065407735]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("おもちゃのポッポ<br>住所　　　　静岡県島田市中央町1897－1<br>電話番号　　0547-37-8228<br>定休日　　　火、水曜日<br>営業時間　　平日12:00～19:00、休日10:00～19:00<br><br>		玩具の名店で平成初期から現在までの幅広いジャンルの玩具がそろっています。")
+              .openOn(map);
+    });
+  
+</script>
+<!--/地図-->
+
+<ul class="btn">
+<li><a href="food.html">飲食</a></li>
+<li><a href="retail.html">小売</a></li>
+<li><a href="service.html">和菓子</a></li>
+
+</ul>
+
+<footer>
+<small>Copyright&copy; <a href="index.html">来てみ島田</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+</div>
+<!--/#container-->
+
+<!--開閉ボタン（ハンバーガーアイコン）-->
+<div id="menubar_hdr">
+<span></span><span></span><span></span>
+</div>
+
+<!--ページの上部へ戻るボタン-->
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>来てみ島田</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.5.4/vegas.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+
+<h1 style="text-align:center" ><a href="index.html"><img src="images/logo.png"  alt="来てみ島田"></a></h1>
+
+
+<h2 style="text-align:center" >すべて</h2>
+
+</header>
+
+
+
+
+
+<!--地図-->
+
+    <div id="view_map" style="height: 1080px;"></div>
+    <script type="text/javascript">
+    //緯度,経度,ズーム
+    var map = L.map('view_map').setView([34.836444203417976, 138.17705896096896], 14);
+    // OpenStreetMap から地図画像を読み込む
+    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+    }).addTo(map);
+    
+    var popup = L.popup();
+    
+    var addMarker = null;
+
+
+    L.marker([34.83174738,138.17462319624835]).addTo(map).on('click', function (e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent("居酒屋てんみ<br>住所　　　島田市日之出町1-11<br>電話番号　　0547-39-7030<br>定休日　　　水曜日<br>営業時間　　17:00～24:30<br><br>御料理は季節ぶ併せた旬な日本料理とフランス・中華料理をベースとしています。リーズナブルに提供しておりますので、御気軽にお取り寄せください。<p></p>")
+              .openOn(map);
+    });
+
+
+
+
+
+  </script>
+
+  
+
+<!--/地図-->
+
+<ul class="btn">
+<li><a href="food.html">飲食</a></li>
+<li><a href="retail.html">小売</a></li>
+<li><a href="service.html">和菓子</a></li>
+
+</ul>
+
+<footer>
+
+
+
+<small>Copyright&copy; <a href="index.html">来てみ島田</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+</div>
+<!--/#container-->
+
+
+
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<!--このテンプレート専用のスクリプト-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
