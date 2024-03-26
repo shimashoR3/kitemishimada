@@ -94,11 +94,11 @@ a:hover {
 ---------------------------------------------------------------------------*/
 /*ヘッダーブロック*/
 header {
-	padding: 00px 0%;			/*上下、左右へのヘッダー内の余白*/
+	padding: 00px 00%;			/*上下、左右へのヘッダー内の余白*/
 	background: #4b3255;		/*背景色*/
 	color: #d8f6db;				/*文字色*/
-	font-size: 20px;
-   　　 line-height: 0;
+    font-size: 20px;
+    line-height: 00;
 }
 header a {color: inherit;}
 
@@ -121,8 +121,181 @@ header a {color: inherit;}
 	}/*画面幅900px以上の追加指定ここまで*/
 
 
+/*トップページのスライドショー（vegasを使用）
+背景画像をレスポンシブにする為の設定ですが、画像比率を変更したい場合はテンプレート内マニュアルをご覧下さい。
+---------------------------------------------------------------------------*/
+#mainimg-box {
+	width: 100%;
+	height: 0;
+	padding-top: 33.3%;
+	position: relative;z-index: -1;
+}
+#mainimg {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
 
 
+/*メニューブロック設定
+---------------------------------------------------------------------------*/
+#menubar a {display: block;text-decoration: none;}
+#menubar ul {list-style: none;margin: 0;padding: 0;font-family: "Font Awesome 5 Free";}
+#menubar.d-n, #menubar_hdr.d-n, #menubar .ddmenu_parent ul {display: none;}
+#menubar.d-b {display: block;}
+#menubar_hdr.d-b {display: flex;}
+#menubar {
+	animation: opa1 0.3s 0.2s both;	/*0.2秒の間だけ非表示にし、その後0.3秒かけてフェードイン表示*/
+	position: relative;z-index: 1;	/*スライドショーがある場合にドロップダウンが下に隠れないようにするため*/
+	font-size: 18px;	/*文字サイズ。端末サイズで文字サイズが変わると不具合が出る場合があるので、ここで統一しています。*/
+}
+
+
+/*ドロップダウンブロック設定
+---------------------------------------------------------------------------*/
+/*ドロップダウンメニューのリンクタグ*/
+#menubar .ddmenu {
+	cursor: default;	/*リンク要素のカーソルを矢印に変更しておく*/
+}
+
+/*ddmenuを指定しているメニューに矢印アイコンをつける設定*/
+a.ddmenu::before {
+	content: "\f078";	/*使いたいアイコン名をここで指定。Font Awesomeに記載されています。詳しくは当テンプレートのマニュアルを読んで下さい。*/
+	font-weight: bold;	/*この手の設定がないとアイコンが出ない場合があります*/
+	margin-right: 1em;	/*アイコンとテキストとの間に空けるスペース*/
+}
+
+
+/*大きな端末用のメニューブロック設定
+---------------------------------------------------------------------------*/
+.p #menubar > nav > ul {
+	display: flex;					/*flexボックスを使う指定*/
+	justify-content: space-between;	/*並びかたの種類の指定*/
+}
+
+/*メニュー１個あたりの設定*/
+.p #menubar li {
+	text-align: center;	/*テキストをセンタリング*/
+	flex: 1;			/*個々のメニューを均等にし、幅いっぱいまで使う設定*/
+	position: relative;	/*ドロップダウンの幅となる基準を作っておく*/
+}
+.p #menubar a {
+	padding: 10px;			/*メニュー内の余白*/
+	background: #241829;	/*背景色*/
+	color: #fff;			/*文字色*/
+}
+
+/*現在表示中メニュー（current）*/
+.p #menubar li.current > a {
+	background: #9a8758;	/*背景色*/
+}
+
+/*現在表示中メニューの下部にある「▼」*/
+.p #menubar li.current::before {
+	content: "▼";				/*この文字（▼マーク）を出力します*/
+	font-size: 20px;			/*サイズ*/
+	color: #9a8758;				/*色*/
+	position: absolute;			/*絶対配置する*/
+	bottom: -1.2em;				/*下からの配置場所の指定*/
+	left: calc(50% - 0.5em);	/*左からの配置場所の指定*/
+	transform: scale(1.5, 0.8);	/*大きさを少し横長にする。横に1.5倍、縦に0.8倍です。*/
+}
+
+
+/*大きな端末用のドロップダウンメニュー
+---------------------------------------------------------------------------*/
+/*ドロップダウンメニューブロック全体*/
+.p #menubar ul ul {
+	position: absolute;z-index: 100;
+	width: 100%;
+	border: 1px solid #ccc;	/*枠線の幅、線種、色*/
+}
+
+
+/*小さな端末用の開閉ブロック
+---------------------------------------------------------------------------*/
+/*メニューブロック設定*/
+.s #menubar.d-b {
+	position: fixed;overflow: auto;z-index: 100;
+	left: 0px;top: 0px;
+	width: 100%;
+	height: 100%;
+	padding: 100px 20px 20px;			/*ブロック内の余白。上、左右、下。*/
+	background: rgba(0,0,0,0.9);		/*背景色。0,0,0は黒の事で0.9は色が90%出た状態。*/
+	text-align: center;					/*内容をセンタリング*/
+	animation: animation1 0.2s both;	/*animation.cssのanimation1を実行する。0.2sは0.2秒の事。*/
+}
+
+/*メニュー１個あたりの設定*/
+.s #menubar a {
+	padding: 10px;		/*メニュー内の余白*/
+	color: #fff;		/*文字色*/
+}
+
+
+/*３本バー（ハンバーガー）アイコン設定
+---------------------------------------------------------------------------*/
+/*大きな端末では非表示にしておく*/
+.p #menubar_hdr {display: none;}
+
+/*３本バーを囲むブロック*/
+.s #menubar_hdr {
+	position: fixed;z-index: 101;
+	cursor: pointer;
+	right: 30px;		/*右からの配置場所指定*/
+	top: 30px;			/*上からの配置場所指定*/
+	padding: 16px 14px;	/*上下、左右への余白*/
+	width: 46px;		/*幅（３本バーが出ている場合の幅になります）*/
+	height: 46px;		/*高さ*/
+	display: flex;					/*flexボックスを使う指定*/
+	flex-direction: column;			/*子要素（３本バー）を縦並びにする*/
+	justify-content: space-between;	/*並びかたの種類の指定*/
+	background: rgba(0,0,0,0.5);	/*背景色*/
+	border-radius: 50%;				/*円形にする*/
+}
+
+	/*画面幅400px以下の追加指定*/
+	@media screen and (max-width:400px) {
+	
+	/*３本バーを囲むブロック*/
+	.s #menubar_hdr {
+		right: 10px;	/*右からの配置場所指定*/
+		top: 10px;		/*上からの配置場所指定*/
+	}
+	
+	}/*画面幅400px以下の追加指定ここまで*/
+
+
+/*バー１本あたりの設定*/
+#menubar_hdr span {
+	display: block;
+	transition: 0.3s;	/*アニメーションにかける時間。0.3秒。*/
+	border-top: 2px solid #fff;	/*線の幅、線種、色*/
+}
+
+/*×印が出ている状態の設定。※１本目および２本目のバーの共通設定。*/
+#menubar_hdr.ham span:nth-of-type(1),
+#menubar_hdr.ham span:nth-of-type(3) {
+	transform-origin: center center;	/*変形の起点。センターに。*/
+	width: 20px;						/*バーの幅*/
+}
+
+/*×印が出ている状態の設定。※１本目のバー。*/
+#menubar_hdr.ham span:nth-of-type(1){
+	transform: rotate(45deg) translate(3.8px, 5px);	/*回転45°と、X軸Y軸への移動距離の指定*/
+}
+
+/*×印が出ている状態の設定。※３本目のバー。*/
+#menubar_hdr.ham span:nth-of-type(3){
+	transform: rotate(-45deg) translate(3.8px, -5px);	/*回転-45°と、X軸Y軸への移動距離の指定*/
+}
+
+/*×印が出ている状態の設定。※２本目のバー。*/
+#menubar_hdr.ham span:nth-of-type(2){
+	display: none;	/*２本目は使わないので非表示にする*/
+}
 
 
 /*mainブロック設定
@@ -726,9 +899,3 @@ ul.btn a {
 		.pc {display: block;}
 
 	}/*画面幅900px以上の追加指定ここまで*/
-
-    
-/*関係なし*/
-#ttt{
-    font-size: 25px;
-}
