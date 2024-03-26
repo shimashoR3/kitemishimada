@@ -98,7 +98,7 @@ header {
 	background: #4b3255;		/*背景色*/
 	color: #d8f6db;				/*文字色*/
 	font-size: 20px;
-   　　 line-height: 00;
+   　　 line-height: 0;
 }
 header a {color: inherit;}
 
